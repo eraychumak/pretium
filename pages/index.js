@@ -1,5 +1,6 @@
-import Head from 'next/head';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from "react";
+import Head from "next/head";
+import Image from "next/image";
 
 import Item from "../components/Item";
 import Group from "../components/Group";
@@ -99,7 +100,7 @@ export default function Home() {
           </button>
         </nav>
         <div className="sections">
-          <section className={`${tab === 0}`}>
+          {tab === 0 && (
             <Group name="livingRoom" setItems={setItems}>
               <Item name="Sofa Seater 2" vol={1.0}/>
               <Item name="Sofa Seater 3" vol={1.5}/>
@@ -129,8 +130,8 @@ export default function Home() {
               <Item name="TV Cabinet" vol={0.5}/>
               <Item name="Wall Clock" vol={0.1}/>
             </Group>
-          </section>
-          <section className={`${tab === 1}`}>
+          )}
+          {tab === 1 && (
             <Group name="kitchen" setItems={setItems}>
               <Item name="Buffet" vol={1.2}/>
               <Item name="Dining Table for 8" vol={1.2}/>
@@ -157,8 +158,8 @@ export default function Home() {
               <Item name="Stove" vol={0.5}/>
               <Item name="Tea Trolley" vol={0.4}/>
             </Group>
-          </section>
-          <section className={`${tab === 2}`}>
+          )}
+          {tab === 2 && (
             <Group name="utilities" setItems={setItems}>
               <Item name="Broom" vol={0.1}/>
               <Item name="Dryer" vol={0.5}/>
@@ -168,8 +169,8 @@ export default function Home() {
               <Item name="Vacuum Cleaner" vol={0.2}/>
               <Item name="Washing Machine" vol={0.5}/>
             </Group>
-          </section>
-          <section className={`${tab === 3}`}>
+          )}
+          {tab === 3 && (
             <Group name="bedroom" setItems={setItems}>
               <Item name="Bedside Table" vol={0.2}/>
               <Item name="Bunk Bed" vol={1.8}/>
@@ -189,16 +190,16 @@ export default function Home() {
               <Item name="Wardrobe 2 Doors" vol={1.4}/>
               <Item name="Wardrobe 1 Door" vol={1.0}/>
             </Group>
-          </section>
-          <section className={`${tab === 4}`}>
+          )}
+          {tab === 4 && (
             <Group name="office" setItems={setItems}>
               <Item name="Computer" vol={0.1}/>
               <Item name="Desk" vol={1.0}/>
               <Item name="Study Chair" vol={0.2}/>
               <Item name="Table Lamp" vol={0.1}/>
             </Group>
-          </section>
-          <section className={`${tab === 5}`}>
+          )}
+          {tab === 5 && (
             <Group name="outdoor" setItems={setItems}>
               <Item name="BBQ Large" vol={1.0}/>
               <Item name="BBQ Portable" vol={0.2}/>
@@ -214,8 +215,8 @@ export default function Home() {
               <Item name="Tools" vol={0.5}/>
               <Item name="Wheelbarrow" vol={0.6}/>
             </Group>
-          </section>
-          <section className={`${tab === 6}`}>
+          )}
+          {tab === 6 && (
             <Group name="misc" setItems={setItems}>
               <Item name="Gym Equipment" vol={0.6}/>
               <Item name="Small Box" vol={0.1}/>
@@ -228,9 +229,19 @@ export default function Home() {
               <Item name="Trunk" vol={0.2}/>
               <Item name="Wine Rack" vol={0.1}/>
             </Group>
-          </section>
+          )}
         </div>
       </main>
+      <footer>
+        <Image
+          src="/logo.png"
+          alt="Logo"
+          width={192}
+          height={103}
+        />
+        <p>Copyright &copy; 2021 Denix Moving and Storage Solutions Ltd.</p>
+        <p>All Rights Reserved.</p>
+      </footer>
     </>
   )
 }
