@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Pretium</title>
+        <title>Pretium - Volume Calculator</title>
       </Head>
       <header>
         <h1>{whole}.<span>{decimal}m<sup>3</sup></span></h1>
