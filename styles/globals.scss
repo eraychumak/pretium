@@ -23,11 +23,6 @@
   outline-offset: .2em;
 }
 
-html, body, #__next, main {
-  height: 100%;
-  width: 100%;
-}
-
 button {
   font-family: "Roboto Regular";
   border: none;
@@ -51,13 +46,20 @@ header {
   top: 0;
   height: 50px;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto 1fr;
   align-items: center;
   z-index: 1;
   font-family: "Roboto Regular Condensed";
 
   span {
     font-size: .6em;
+  }
+
+  svg {
+    height: 24px;
+    overflow: unset;
+    width: auto;
+    fill: #2E1800;
   }
 }
 
@@ -85,6 +87,7 @@ header {
   }
 
   .t35 {
+    align-items: center;
     left: calc((19 / 34) * 100%);
     margin-left: 7px;
 
@@ -98,6 +101,7 @@ header {
       background: #BEA888;
       width: 2px;
     }
+
   }
 
   .t75 {
@@ -110,9 +114,11 @@ header {
     display: flex;
     align-items: center;
   }
+
 }
 
 main {
+  height: 100%;
   padding: 0 1em;
 }
 
@@ -149,26 +155,14 @@ nav {
 }
 
 
-svg {
+nav svg {
   margin-bottom: .5em;
   width: 4vmax;
 }
 
-.sections {
-  position: relative;
-}
-
-section {
-  position: absolute;
+.items {
   width: 100%;
-
-  &.true {
-    animation: appear 200ms ease-in-out;
-  }
-
-  &.false {
-    display: none;
-  }
+  animation: appear 200ms ease-in-out;
 }
 
 .item {
@@ -206,6 +200,21 @@ section {
     &:hover {
       background: #3F2911;
     }
+  }
+}
+
+footer {
+  padding: 1em 0;
+  border-top: solid 1px #2E1800;
+  text-align: center;
+
+  p {
+    margin-top: 1em;
+  }
+
+  img {
+    border-radius: 10px;
+    background: #2E1800;
   }
 }
 

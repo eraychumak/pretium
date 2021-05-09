@@ -10,6 +10,7 @@ import BedIcon from "../assets/icons/bed.svg";
 import DeskIcon from "../assets/icons/desk.svg";
 import BicycleIcon from "../assets/icons/bicycle.svg";
 import MiscIcon from "../assets/icons/misc.svg";
+import TruckLoadingIcon from "../assets/icons/truckLoading.svg";
 
 export default function Home() {
   const progressRef = useRef(null);
@@ -37,6 +38,7 @@ export default function Home() {
       </Head>
       <header>
         <h1>{whole}.<span>{decimal}m<sup>3</sup></span></h1>
+        <TruckLoadingIcon/>
         <div className="capacity">
           <div className="progress" ref={progressRef}>
             <p className="t35">3.5t</p>
