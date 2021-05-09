@@ -35,9 +35,9 @@ export default function Item(props) {
   return (
     <div className={`item ${items[name] > 0}`} title={`Volume: ${vol.toFixed(2)}m3`}>
       <p>{name}</p>
-      <button className="dec" onClick={dec}>-</button>
       <p>{items[name]}</p>
-      <button className="inc" onClick={inc}>+</button>
+      <button className="dec" onClick={dec}>DEL</button>
+      <button className="inc" onClick={inc}>ADD</button>
     </div>
   )
 }
