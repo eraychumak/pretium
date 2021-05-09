@@ -3,43 +3,48 @@ import { useEffect, useState, useRef } from 'react';
 
 import Item from "../components/Item";
 import Group from "../components/Group";
-import SofaIcon from "../components/assets/sofa.svg";
-import FridgeIcon from "../components/assets/fridge.svg";
-import WashingMachineIcon from "../components/assets/washingMachine.svg";
-import BedIcon from "../components/assets/bed.svg";
-import DeskIcon from "../components/assets/desk.svg";
-import BicycleIcon from "../components/assets/bicycle.svg";
-import MiscIcon from "../components/assets/misc.svg";
+import SofaIcon from "../assets/icons/sofa.svg";
+import FridgeIcon from "../assets/icons/fridge.svg";
+import WashingMachineIcon from "../assets/icons/washingMachine.svg";
+import BedIcon from "../assets/icons/bed.svg";
+import DeskIcon from "../assets/icons/desk.svg";
+import BicycleIcon from "../assets/icons/bicycle.svg";
+import MiscIcon from "../assets/icons/misc.svg";
 
 export default function Home() {
   const progressRef = useRef(null);
 
   const [tab, setTab] = useState(0);
-  const [totalVol, setTotalVol] = useState(0);
+  const [totalVol, setTotalVol] = useState(0.0);
   const [items, setItems] = useState({});
 
   useEffect(() => {
     const vols = Object.values(items).map(item => item.totalVol);
     const total = vols.reduce((acc, vol) => acc + vol, 0);
-    setTotalVol(total);
+    setTotalVol(Math.abs(total).toFixed(2));
   }, [items]);
 
   useEffect(() => {
     progressRef.current.style.width = `${(totalVol / 34) * 100}%`;
   }, [totalVol]);
 
+  const [whole, decimal] = totalVol.toString().split(".");
+
   return (
     <>
       <Head>
         <title>Pretium</title>
       </Head>
-      <main>
+      <header>
+        <h1>{whole}.<span>{decimal}m<sup>3</sup></span></h1>
         <div className="capacity">
-          <div className="progress" ref={progressRef}/>
-          <p className="t35">3.5t</p>
-          <p className="t75">7.5t</p>
+          <div className="progress" ref={progressRef}>
+            <p className="t35">3.5t</p>
+            <p className="t75">7.5t</p>
+          </div>
         </div>
-        <h1>{totalVol.toFixed(2)}m<sup>3</sup></h1>
+      </header>
+      <main>
         <nav>
           <button className={`tab ${tab === 0}`} onClick={() => setTab(0)}>
             <SofaIcon/>
@@ -76,13 +81,13 @@ export default function Home() {
               ({items?.office?.itemCount || 0}) {(items?.office?.totalVol || 0).toFixed(2)}m<sup>3</sup>
             </p>
           </button>
-          <div tabIndex={0} className={`tab ${tab === 5}`} onClick={() => setTab(5)}>
+          <button className={`tab ${tab === 5}`} onClick={() => setTab(5)}>
             <BicycleIcon/>
             <p>Outdoor</p>
             <p>
               ({items?.outdoor?.itemCount || 0}) {(items?.outdoor?.totalVol || 0).toFixed(2)}m<sup>3</sup>
             </p>
-          </div>
+          </button>
           <button className={`tab ${tab === 6}`} onClick={() => setTab(6)}>
             <MiscIcon/>
             <p>Miscellaneous</p>
