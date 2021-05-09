@@ -6,6 +6,8 @@ export default function Item(props) {
   const { vol, name } = props;
 
   useEffect(() => {
+    if (!isNaN(items[name])) return;
+
     setItems(prev => ({
       ...prev,
       [name]: 0

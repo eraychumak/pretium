@@ -21,9 +21,11 @@ export default function Group(props) {
 
   return (
     <ItemContext.Provider value={{totalVol, setTotalVol, items, setItems}}>
-      <div className="items">
-        {props.children}
-      </div>
+      {props.visible && (
+        <div className="items">
+          {props.children}
+        </div>
+      )}
     </ItemContext.Provider>
   )
 }
