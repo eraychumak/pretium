@@ -195,15 +195,6 @@ footer {
   text-align: center;
 }
 
-footer p {
-  margin-top: 1em;
-}
-
-footer img {
-  border-radius: 10px;
-  background: #2E1800;
-}
-
 @keyframes appear {
   from { opacity: 0 }
   to { opacity: 1 }

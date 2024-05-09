@@ -218,14 +218,7 @@ export default function HomePage() {
         </div>
       </main>
       <footer>
-        <Image
-          src="/logo.png"
-          alt="Logo"
-          width={192}
-          height={103}
-        />
-        <p>Copyright &copy; 2021 Denix Moving and Storage Solutions Ltd.</p>
-        <p>All Rights Reserved.</p>
+        <p>Copyright &copy; 2021 Eray Chumak. All rights reserved.</p>
       </footer>
     </>
   )
