@@ -1,19 +1,21 @@
+"use client";
+
 import { useEffect, useState, useRef } from "react";
-import Head from "next/head";
 import Image from "next/image";
 
-import Item from "../components/Item";
-import Group from "../components/Group";
-import SofaIcon from "../assets/icons/sofa.svg";
-import FridgeIcon from "../assets/icons/fridge.svg";
-import WashingMachineIcon from "../assets/icons/washingMachine.svg";
-import BedIcon from "../assets/icons/bed.svg";
-import DeskIcon from "../assets/icons/desk.svg";
-import BicycleIcon from "../assets/icons/bicycle.svg";
-import MiscIcon from "../assets/icons/misc.svg";
-import TruckLoadingIcon from "../assets/icons/truckLoading.svg";
+import Item from "./components/Item";
+import Group from "./components/Group";
 
-export default function Home() {
+import SofaIcon from "./assets/icons/sofa.svg";
+import FridgeIcon from "./assets/icons/fridge.svg";
+import WashingMachineIcon from "./assets/icons/washingMachine.svg";
+import BedIcon from "./assets/icons/bed.svg";
+import DeskIcon from "./assets/icons/desk.svg";
+import BicycleIcon from "./assets/icons/bicycle.svg";
+import MiscIcon from "./assets/icons/misc.svg";
+import TruckLoadingIcon from "./assets/icons/truckLoading.svg";
+
+export default function HomePage() {
   const progressRef = useRef(null);
 
   const [tab, setTab] = useState(0);
@@ -34,12 +36,9 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Pretium - Volume Calculator</title>
-      </Head>
       <header>
         <h1>{whole}.<span>{decimal}m<sup>3</sup></span></h1>
-        <TruckLoadingIcon/>
+        <Image className="svg" src={TruckLoadingIcon}/>
         <div className="capacity">
           <div className="progress" ref={progressRef}>
             <p className="t35">3.5t</p>
@@ -50,49 +49,49 @@ export default function Home() {
       <main>
         <nav>
           <button className={`tab ${tab === 0}`} onClick={() => setTab(0)}>
-            <SofaIcon/>
+            <Image className="svg" src={SofaIcon}/>
             <p>Living Room</p>
             <p>
               ({items?.livingRoom?.itemCount || 0}) {(items?.livingRoom?.totalVol || 0).toFixed(2)}m<sup>3</sup>
             </p>
           </button>
           <button className={`tab ${tab === 1}`} onClick={() => setTab(1)}>
-            <FridgeIcon/>
+            <Image className="svg" src={FridgeIcon}/>
             <p>Kitchen</p>
             <p>
               ({items?.kitchen?.itemCount || 0}) {(items?.kitchen?.totalVol || 0).toFixed(2)}m<sup>3</sup>
             </p>
           </button>
           <button className={`tab ${tab === 2}`} onClick={() => setTab(2)}>
-            <WashingMachineIcon/>
+            <Image className="svg" src={WashingMachineIcon}/>
             <p>Utilities</p>
             <p>
               ({items?.utilities?.itemCount || 0}) {(items?.utilities?.totalVol || 0).toFixed(2)}m<sup>3</sup>
             </p>
           </button>
           <button className={`tab ${tab === 3}`} onClick={() => setTab(3)}>
-            <BedIcon/>
+            <Image className="svg" src={BedIcon}/>
             <p>Bedroom</p>
             <p>
               ({items?.bedroom?.itemCount || 0}) {(items?.bedroom?.totalVol || 0).toFixed(2)}m<sup>3</sup>
             </p>
           </button>
           <button className={`tab ${tab === 4}`} onClick={() => setTab(4)}>
-            <DeskIcon/>
+            <Image className="svg" src={DeskIcon}/>
             <p>Office</p>
             <p>
               ({items?.office?.itemCount || 0}) {(items?.office?.totalVol || 0).toFixed(2)}m<sup>3</sup>
             </p>
           </button>
           <button className={`tab ${tab === 5}`} onClick={() => setTab(5)}>
-            <BicycleIcon/>
+            <Image className="svg" src={BicycleIcon}/>
             <p>Outdoor</p>
             <p>
               ({items?.outdoor?.itemCount || 0}) {(items?.outdoor?.totalVol || 0).toFixed(2)}m<sup>3</sup>
             </p>
           </button>
           <button className={`tab ${tab === 6}`} onClick={() => setTab(6)}>
-            <MiscIcon/>
+            <Image className="svg" src={MiscIcon}/>
             <p>Miscellaneous</p>
             <p>
               ({items?.misc?.itemCount || 0}) {(items?.misc?.totalVol || 0).toFixed(2)}m<sup>3</sup>

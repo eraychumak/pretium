@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:focus {
+  outline-offset: .2em;
+}
+
+button {
+  font-family: var(--font-roboto);
+  border: none;
+}
+
+body {
+  margin: 0 auto;
+  font-family: var(--font-roboto);
+  max-width: 800px;
+  position: relative;
+}
+
+header {
+  background: #fff;
+  width: 100%;
+  max-width: 800px;
+  position: fixed;
+  padding: 0 1em;
+  gap: 1em;
+  width: 100%;
+  top: 0;
+  height: 50px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  z-index: 1;
+  font-family: var(--font-roboto-condensed);
+}
+
+header span {
+  font-size: .6em;
+}
+
+header .svg {
+  height: 24px;
+  overflow: unset;
+  width: auto;
+  fill: #2E1800;
+}
+
+.capacity {
+  position: relative;
+  background: #2E1800;
+  height: 24px;
+  width: 100%;
+  border-radius: 10px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.capacity .progress {
+  height: inherit;
+  width: 0;
+  background: #F8C753;
+  transition: width 100ms ease-in-out;
+}
+
+.capacity .totalProg {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1em;
+}
+
+.capacity .t35 {
+  align-items: center;
+  left: calc((19 / 34) * 100%);
+  margin-left: 7px;
+}
+
+.capacity .t35::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -7px;
+  height: 100%;
+  transform: translateY(-50%);
+  background: #BEA888;
+  width: 2px;
+}
+
+.capacity .t75 {
+  right: 5px;
+}
+
+.capacity .t35, .capacity .t75 {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+main {
+  height: 100%;
+  padding: 0 1em;
+}
+
+nav {
+  margin: 60px 0;
+  display: grid;
+  width: 100%;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin-bottom: 1em;
+}
+
+.tab {
+  border-radius: 10px;
+  padding: 1em;
+  background: #AD9777;
+  text-align: center;
+  transition: 150ms ease-in-out;
+  transition-property: background, color, filter;
+}
+
+.tab:hover {
+  background: #BEA888;
+}
+
+.tab.true {
+  background: #2E1800;
+  color: #eee;
+}
+
+.tab.true .svg {
+  filter: invert(100%);
+}
+
+.tab.false {
+  cursor: pointer;
+}
+
+nav .svg {
+  margin-bottom: .5em;
+  width: 4vmax;
+  height: auto;
+}
+
+.items {
+  width: 100%;
+  animation: appear 200ms ease-in-out;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 1em;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.item.true {
+  font-weight: bold;
+}
+
+.item button {
+  height: 40px;
+  width: 40px;
+  background: #eee;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-roboto);
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: background 100ms ease-in-out;
+}
+
+.item .dec:hover {
+  background: #ddd;
+}
+
+.item .inc {
+  color: #fff;
+  background: #2E1800;
+}
+
+.item .inc:hover {
+  background: #3F2911;
+}
+
+footer {
+  padding: 1em 0;
+  border-top: solid 1px #2E1800;
+  text-align: center;
+}
+
+footer p {
+  margin-top: 1em;
+}
+
+footer img {
+  border-radius: 10px;
+  background: #2E1800;
+}
+
+@keyframes appear {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}

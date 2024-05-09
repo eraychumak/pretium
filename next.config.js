@@ -1,10 +1,8 @@
-module.exports = {
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"]
-    });
+// @ts-check
 
-    return config;
-  }
-};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  /* config options here */
+}
+
+module.exports = nextConfig;
